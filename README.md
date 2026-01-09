@@ -224,6 +224,31 @@ The `build.sh` script creates binaries for:
 - macOS (amd64, arm64)
 - Windows (amd64, arm64)
 
+### Building with older Go versions
+
+If you are using an older version of Go (e.g., 1.24) and cannot upgrade, you can modify the `go.mod` file:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/anudeepd/atlassian-confluence-dc-go-mcp.git
+   cd atlassian-confluence-dc-go-mcp
+   ```
+
+2. Edit the Go version in `go.mod`:
+   ```bash
+   go mod edit -go=1.24
+   ```
+
+3. Tidy the modules:
+   ```bash
+   go mod tidy
+   ```
+
+4. Build the project:
+   ```bash
+   go build .
+   ```
+
 ## Project Structure
 
 ```
@@ -271,8 +296,16 @@ For issues, questions, or contributions, please open an issue on GitHub.
 
 ## Changelog
 
-### v1.0.0 (Initial Release)
+### v1.0.2
+- Added documentation for building with older Go versions
+
+### v1.0.1 [Deprecated]
+- Fixed incorrect module path in `go.mod`
+- **Note**: This version is deprecated due to configuration issues. Please use v1.0.2+.
+
+### v1.0.0 (Initial Release) [Deprecated]
 - Complete Go rewrite of the TypeScript implementation
 - Support for all core Confluence operations
 - Multi-platform build support
 - MCP protocol compliance
+- **Note**: This version is deprecated due to incorrect module configuration. Please use v1.0.2+.
